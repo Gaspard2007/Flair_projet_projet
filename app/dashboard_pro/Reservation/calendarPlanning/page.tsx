@@ -1,10 +1,7 @@
 'use client'
-import Calendar from '@/components/planningMonth';
-import MyCalendar from '@/components/planningMonth';
-import MonthView from '@/components/planningMonth';
-import PlanningMonth from '@/components/planningMonth';
-import PlanningWeek from '@/components/planningWeek';
 import React, { useState } from 'react';
+import MonthView from '@/components/planningMonth';
+import PlanningWeek from '@/components/planningWeek';
 
 interface PlanningProps {
     date: Date;
@@ -53,21 +50,9 @@ const Planning: React.FC<PlanningProps> = ({ date }) => {
         setShowDay(false);
         setShowList(true);
     };
-    const myEventsList = [
-        {
-          id: 1,
-          title: 'Réunion',
-          start: new Date(2024, 3, 15, 10, 0),
-          end: new Date(2024, 3, 15, 12, 0),
-        },
-        {
-          id: 2,
-          title: 'Présentation',
-          start: new Date(2024, 3, 17, 14, 0),
-          end: new Date(2024, 3, 17, 16, 0),
-        }
-    ];
-    const [currentDate, setCurrentDate] = useState(new Date());
+
+    const currentDate = new Date(); 
+
     return (
         <div>
             <br />
@@ -90,7 +75,7 @@ const Planning: React.FC<PlanningProps> = ({ date }) => {
                     </div>
                 </div>
             </div>
-            {/* Afficher le contenu en fonction de l'état */}
+            
             {showMonth && (
                 <div style={{height:'85vh'}}>
                     <MonthView currentDate={currentDate}/>
